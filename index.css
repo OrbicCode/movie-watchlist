@@ -1,0 +1,225 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", serif;
+    font-size: 1rem;
+    width: 550px;
+    margin: 0 auto;
+    min-height: 400px;
+}
+
+.container {
+    background: #121212;
+    height: 100vh;
+}
+
+/* =================
+    Typography
+   ================= */
+
+h1,
+h2,
+nav li,
+.results {
+    color: #fff;
+}
+   
+h1 {
+    font-size: 2.625rem;
+    font-weight: 800;
+    letter-spacing: -2.5px;
+}
+
+h2 {
+    font-size: 1.125rem;
+    margin: 0 1em 0 0;
+}
+
+.standby-text {
+    font-weight: 700;
+    color: #2E2E2F
+}
+
+/* movie-box */
+
+.movie-box p {
+    margin: 0.2em 0
+}
+
+.rating,
+.runtime,
+.genre,
+.add-remove-text {
+    font-size: 0.75em;
+}
+
+.plot {
+    font-size: 0.875rem;
+    color: #A5A5A5
+}
+
+/* nav */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav li {
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+/* search */
+
+.search-icon-wrapper {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-icon {
+    width: 16px;
+    height: 100%;
+}
+
+.search-input,
+.search-btn {
+    font-size: 0.875rem;
+    color: #fff;
+    border: none;
+    font-family: inherit;
+    padding: 0.7em;
+}
+
+.search-input {
+    background: #2E2E2F;
+    max-width: 280px;
+    width: 100%;
+}
+
+.search-btn {
+    font-weight: 500;
+    background: #4B4B4B;
+    width: 120px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+   
+/* =================
+    Layout
+   ================= */
+   
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url(/images/header.png);
+    background-color: #4B4B4B;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: 0 -155px;
+    padding: 0 3em;
+    height: 208px
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #2E2E2F;
+    width: 80%;
+    margin: -18px auto;
+    border-radius: 5px;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 208px);
+}
+
+.results img {
+    display: block;
+    margin: 0 auto;
+}
+
+
+   
+/* =================
+    Movie Box
+   ================= */
+
+.movie-box,
+.movie-info,
+.movie-title-rating,
+.movie-time-genre,
+.add-remove-section {
+    display: flex;
+}
+
+.results,
+.movie-info {
+    flex-direction: column;
+}
+
+.movie-title-rating,
+.movie-time-genre {
+    margin-bottom: 0.5em;
+}
+
+.results {
+    margin-top: 50px;
+    align-items: center;
+    overflow: auto;
+}
+
+.movie-box {
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+    padding: 1.5em 0;
+    border-bottom: 1px solid #2C2C2C;
+}
+
+.poster {
+    display: block;
+    width: 25%;
+    height: 147px;
+    border-radius: 5px;
+    margin-right: 30px;
+}
+
+.movie-info {
+    margin-left: 2em;
+}
+
+.movie-title-rating {
+    align-items: center;
+}
+
+.movie-time-genre {
+    gap: 0 1em
+}
+
+.add-remove-section {
+    align-items: center;
+    gap: 0 0.4em
+}
+
+.add-remove-btn {
+    width: 16px;
+    height: 16px;
+}
