@@ -68,4 +68,14 @@ function addToWatchlist(movieId) {
     }
 }
 
-// on click get the id of the button
+function loadWatchlist() {
+    const watchlistContainer = document.getElementById('watchlist')
+    for (let i = 0; i < localStorage.length; i++) {
+        const movieId = localStorage.key(i)
+        const movieBoxHTML = localStorage.getItem(movieId)
+        watchlistContainer.innerHTML += movieBoxHTML
+    }
+}
+
+// Call loadWatchlist on page load to display saved watchlist items
+document.addEventListener('DOMContentLoaded', loadWatchlist)
