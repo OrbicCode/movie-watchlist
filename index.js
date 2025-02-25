@@ -33,7 +33,7 @@ function renderSearches(movieInfo) {
     if (movieInfo.length > 0) {
         const html = movieInfo.map((movie) => {
             return `
-                <div class="movie-box">
+                <div class="movie-box" data-id=${movie.imdbID}>
                     <img class="poster" src="${movie.Poster}">
                     <div class="movie-info">
                         <div class="movie-title-rating">
@@ -44,7 +44,7 @@ function renderSearches(movieInfo) {
                             <p class="runtime">${movie.Runtime}</p>
                             <p class="genre">${movie.Genre}</p>
                             <div class="add-remove-section">
-                                <img class="add-remove-btn" src="/images/icon-2.png">
+                                <img class="add-remove-btn" src="/images/icon-2.png" id="${movie.imdbID}">
                                 <p class="add-remove-text">Watchlist</p>
                             </div>
                         </div>
@@ -54,10 +54,18 @@ function renderSearches(movieInfo) {
         }).join('')
 
         document.getElementById('results').innerHTML = html
-    } else {
-        html = `
-            <p>Unable to find what you’re looking for. Please try another search.</p>`
+    } 
+}
 
-        document.getElementById('results').innerHTML = html
+document.addEventListener('click', (e) => {
+    addToWatchlist(e.target.id)
+})
+
+function addToWatchlist(movieId) {
+    const movieBox = document.querySelector(`.movie-box[data-id='${movieId}']`)
+    if (movieBox) {
+        localStorage.setItem(movieId, movieBox.outerHTML)
     }
 }
+
+// on click get the id of the button
