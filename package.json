@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "netlify": "^13.3.5",
     "node-fetch": "^2.7.0",
     "vite": "latest"
   }

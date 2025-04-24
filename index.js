@@ -7,12 +7,12 @@ form.addEventListener('submit', (e) => {
     const searchTerm = searchInput.value.toLowerCase().trim();
     results.innerHTML = "";
 
-    fetch(`/.netlify/functions/fetchMovies?searchTerm=${searchTerm}`)
+    fetch(`/.netlify/functions/fetchmovies?searchTerm=${searchTerm}`)
         .then(res => res.json())
         .then(data => {
             if (data.Search) {
                 data.Search.slice(0, 3).forEach(movie => {
-                    fetch(`/.netlify/functions/fetchMovies?imdbID=${movie.imdbID}`)
+                    fetch(`/.netlify/functions/fetchmovies?imdbID=${movie.imdbID}`)
                         .then(res => res.json())
                         .then(movieData => {
                             results.innerHTML += `
