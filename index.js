@@ -1,19 +1,18 @@
 const form = document.getElementById("form")
 const searchInput = document.getElementById("search-input")
 const results = document.getElementById('results')
-const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const searchTerm = searchInput.value.toLowerCase().trim()
-    results.innerHTML = ""
-    
-    fetch(`https://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`)
+    e.preventDefault();
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    results.innerHTML = "";
+
+    fetch(`/.netlify/functions/fetchMovies?searchTerm=${searchTerm}`)
         .then(res => res.json())
         .then(data => {
             if (data.Search) {
                 data.Search.slice(0, 3).forEach(movie => {
-                    fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=${API_KEY}`)
+                    fetch(`/.netlify/functions/fetchMovies?imdbID=${movie.imdbID}`)
                         .then(res => res.json())
                         .then(movieData => {
                             results.innerHTML += `
@@ -36,11 +35,11 @@ form.addEventListener('submit', (e) => {
                                     </div>
                                 </div>
                             `;
-                        })
-                })
-            }}) 
-
-})
+                        });
+                });
+            }
+        });
+});
 
 document.addEventListener('click', (e) => {
     const watchlistBtnId = e.target.dataset.movieId
